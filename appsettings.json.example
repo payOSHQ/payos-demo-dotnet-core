@@ -1,0 +1,19 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "AllowedMethods": "*",
+  "ConnectionStrings": {
+    "DefaultConnection": "server=;database=;uid=;pwd=;"
+  },
+  "Environment":{
+    "PAYOS_CLIENT_ID": "",
+    "PAYOS_API_KEY": "",
+    "PAYOS_CHECKSUM_KEY": "",
+    "PAYOS_CREATE_PAYMENT_LINK_URL": "https://api-merchant.payos.vn/v2/payment-requests"
+  }
+}
