@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using PayOSNetCore.Types;
 
 namespace PayOSNetCore.Utils;
+
 public class Utils
 {
     private static string ConvertObjToQueryStr(JObject obj)
@@ -14,7 +15,24 @@ public class Utils
         {
             var key = property.Name;
             var value = property.Value;
-            var valueAsString = value.Type == JTokenType.String ? value.Value<string>() : value.ToString();
+            //default null if value is null
+            string valueAsString = "null"; 
+
+            //Case DateTime
+            if (value.Type == JTokenType.Date) 
+            {
+                DateTime dateValue = (DateTime)value;
+                valueAsString = dateValue.ToString("yyyy-MM-ddTHH:mm:sszzz");
+            }
+            //Case String
+            else if (value.Type == JTokenType.String)
+            {
+                valueAsString = value.Value<string>();
+            }
+            else if (value.Type != JTokenType.Null) // Remain type
+            {
+                valueAsString = value.ToString();
+            }
 
             if (queryString.Length > 0)
             {
@@ -69,7 +87,8 @@ public class Utils
         var description = data.description;
         var orderCode = data.orderCode.ToString();
         var returnUrl = data.returnUrl;
-        var dataStr = $"amount={amount}&cancelUrl={cancelUrl}&description={description}&orderCode={orderCode}&returnUrl={returnUrl}";
+        var dataStr =
+            $"amount={amount}&cancelUrl={cancelUrl}&description={description}&orderCode={orderCode}&returnUrl={returnUrl}";
 
         return GenerateHmacSHA256(dataStr, key);
     }

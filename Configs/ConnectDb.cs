@@ -4,17 +4,16 @@ using MySql.Data.MySqlClient;
 
 public class ConnectMySql
 {
-    private readonly IConfiguration _configuration;
+    private readonly string? connectionString;
 
     public ConnectMySql(IConfiguration configuration)
     {
-        _configuration = configuration;
+        connectionString = configuration.GetConnectionString("DefaultConnection");
     }
-    public MySqlConnection Connect()
+    public MySqlConnection? Connect()
     {
         try
         {
-            string connectionString = _configuration.GetConnectionString("DefaultConnection");
             MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = connectionString;
             return conn;

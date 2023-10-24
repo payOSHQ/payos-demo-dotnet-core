@@ -4,7 +4,7 @@ namespace PayOSNetCore.Types;
 public record Response(
     int error,
     String message,
-    object data
+    object? data
 );
 
 public record CheckoutUrl(

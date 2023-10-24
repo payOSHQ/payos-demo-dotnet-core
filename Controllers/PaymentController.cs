@@ -46,7 +46,7 @@ public class PaymentController : ControllerBase
             }
 
 
-            String checksumKey = _configuration["Environment:PAYOS_CHECKSUM_KEY"];
+            String checksumKey = _configuration["Environment:PAYOS_CHECKSUM_KEY"]?? throw new Exception("Cannot find environment");
 
             string signData = Utils.CreateSignatureFromObj(JObject.Parse(JsonConvert.SerializeObject(data)), checksumKey);
 
