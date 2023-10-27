@@ -16,10 +16,10 @@ public class Utils
             var key = property.Name;
             var value = property.Value;
             //default null if value is null
-            string valueAsString = "null"; 
+            string valueAsString = "null";
 
             //Case DateTime
-            if (value.Type == JTokenType.Date) 
+            if (value.Type == JTokenType.Date)
             {
                 DateTime dateValue = (DateTime)value;
                 valueAsString = dateValue.ToString("yyyy-MM-ddTHH:mm:sszzz");
@@ -75,6 +75,33 @@ public class Utils
 
     public static string CreateSignatureFromObj(JObject data, string key)
     {
+        // string json =
+        //     @"
+        //     {
+        //         ""code"": ""00"",
+        //         ""desc"": ""success"",
+        //         ""data"": {
+        //             ""id"": ""89e0cee536ff406189420bba8740ba0b"",
+        //             ""orderCode"": 704057,
+        //             ""amount"": 1000,
+        //             ""amountPaid"": 0,
+        //             ""amountRemaining"": 1000,
+        //             ""status"": ""PENDING"",
+        //             ""createdAt"": ""2023-10-27T14:45:04+07:00"",
+        //             ""transactions"": [],
+        //             ""canceledAt"": null,
+        //             ""cancellationReason"": null
+        //         },
+        //         ""signature"": ""c6afc66375823b7341964f427b6199d90005ad3a375838d0fbbc095795a62b87""
+        //     }";
+        // JObject bodyRequestJson = JObject.Parse(json);
+        // var sortedDataByKey1 = SortObjDataByKey((JObject)bodyRequestJson["data"]);
+        // var dataQueryStr1 = ConvertObjToQueryStr(sortedDataByKey1);
+        // string s = GenerateHmacSHA256(dataQueryStr1, key);
+        // Console.WriteLine(dataQueryStr1);
+        // Console.WriteLine(s);
+        // Console.WriteLine(bodyRequestJson["signature"]);
+
         var sortedDataByKey = SortObjDataByKey(data);
         var dataQueryStr = ConvertObjToQueryStr(sortedDataByKey);
         return GenerateHmacSHA256(dataQueryStr, key);
