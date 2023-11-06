@@ -249,3 +249,5 @@ D:\PayOs\payos-be-.net\obj\Debug\net6.0\refint\PayOSNetCore.dll
 D:\PayOs\payos-be-.net\obj\Debug\net6.0\PayOSNetCore.pdb
 D:\PayOs\payos-be-.net\obj\Debug\net6.0\PayOSNetCore.genruntimeconfig.cache
 D:\PayOs\payos-be-.net\obj\Debug\net6.0\ref\PayOSNetCore.dll
+D:\PayOs\payos-be-.net\obj\Debug\net6.0\PayOSNetCore.RazorAssemblyInfo.cache
+D:\PayOs\payos-be-.net\obj\Debug\net6.0\PayOSNetCore.RazorAssemblyInfo.cs

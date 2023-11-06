@@ -14,3 +14,11 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = D:\PayOs\payos-be-.net
 build_property._RazorSourceGeneratorDebug = 
+
+[D:/PayOs/payos-be-.net/Views/Checkout/demo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcZGVtby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PayOs/payos-be-.net/Views/Checkout/result.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRccmVzdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
