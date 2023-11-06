@@ -21,25 +21,30 @@ public class CheckoutController : Controller
     }
 
     [HttpGet("/")]
-    public IActionResult Demo()
+    public IActionResult Index()
     {
         // Trả về trang HTML có tên "MyView.cshtml"
-        return View("demo");
+        return View("index");
     }
-    [HttpGet("/result")]
-    public IActionResult Result()
+    [HttpGet("/cancel")]
+    public IActionResult Cancel()
     {
         // Trả về trang HTML có tên "MyView.cshtml"
-        return View("result");
+        return View("cancel");
     }
-
-    [HttpPost("/checkout")]
-    public async Task<IActionResult> Checkout(CreatePaymentLinkRequest body)
+    [HttpGet("/success")]
+    public IActionResult Success()
+    {
+        // Trả về trang HTML có tên "MyView.cshtml"
+        return View("success");
+    }
+    [HttpPost("/create-payment-link")]
+    public async Task<IActionResult> Checkout()
     {
         try
         {
             int orderCode = int.Parse(DateTimeOffset.Now.ToString("ffffff"));
-            Item item = new Item(body.productName, 1, body.price);
+            Item item = new Item("Mì tôm hảo hảo ly", 1, 1000);
             List<Item> items = new List<Item>();
             items.Add(item);
             String checksumKey =
@@ -48,11 +53,11 @@ public class CheckoutController : Controller
 
             BodyRequest bodyRequest = new BodyRequest(
                 orderCode,
-                body.price,
-                body.description,
+                1000,
+                "Thanh toan don hang",
                 items,
-                body.cancelUrl,
-                body.returnUrl,
+                "https://localhost:3002/cancel",
+                "https://localhost:3002/success",
                 ""
             );
             string signature = Utils.CreateSignatureOfPaymentRequest(bodyRequest, checksumKey);

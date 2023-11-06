@@ -15,10 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\PayOs\payos-be-.net
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/PayOs/payos-be-.net/Views/Checkout/demo.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcZGVtby5jc2h0bWw=
+[D:/PayOs/payos-be-.net/Views/Checkout/cancel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcY2FuY2VsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PayOs/payos-be-.net/Views/Checkout/result.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRccmVzdWx0LmNzaHRtbA==
+[D:/PayOs/payos-be-.net/Views/Checkout/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcaW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PayOs/payos-be-.net/Views/Checkout/success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcc3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
