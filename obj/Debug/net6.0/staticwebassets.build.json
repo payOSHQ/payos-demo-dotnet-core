@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "KYmno7vpzguvrvgM3SaaSwpKNvjDT9jmRpELyUUa7Lc=",
+  "Hash": "E7pcr0icpitJjrInoA6BUujCEs2/G4VB/+atkyYNEzs=",
   "Source": "PayOSNetCore",
   "BasePath": "_content/PayOSNetCore",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "PayOSNetCore\\wwwroot",
+      "Source": "PayOSNetCore",
+      "ContentRoot": "D:\\PayOs\\payos-be-.net\\wwwroot\\",
+      "BasePath": "_content/PayOSNetCore",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\PayOs\\payos-be-.net\\wwwroot\\css\\style.css",
+      "SourceId": "PayOSNetCore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PayOs\\payos-be-.net\\wwwroot\\",
+      "BasePath": "_content/PayOSNetCore",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
+    }
+  ]
 }

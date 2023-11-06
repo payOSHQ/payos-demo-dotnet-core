@@ -251,3 +251,4 @@ D:\PayOs\payos-be-.net\obj\Debug\net6.0\PayOSNetCore.genruntimeconfig.cache
 D:\PayOs\payos-be-.net\obj\Debug\net6.0\ref\PayOSNetCore.dll
 D:\PayOs\payos-be-.net\obj\Debug\net6.0\PayOSNetCore.RazorAssemblyInfo.cache
 D:\PayOs\payos-be-.net\obj\Debug\net6.0\PayOSNetCore.RazorAssemblyInfo.cs
+D:\PayOs\payos-be-.net\bin\Debug\net6.0\PayOSNetCore.staticwebassets.runtime.json
