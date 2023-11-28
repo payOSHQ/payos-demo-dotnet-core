@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "E7pcr0icpitJjrInoA6BUujCEs2/G4VB/+atkyYNEzs=",
+  "Hash": "30l2TgxduTYOZKi4V95Elh+22+k8BYjogPFFMj7GQ/8=",
   "Source": "PayOSNetCore",
   "BasePath": "_content/PayOSNetCore",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "PayOSNetCore\\wwwroot",
       "Source": "PayOSNetCore",
-      "ContentRoot": "D:\\PayOs\\payos-be-.net\\wwwroot\\",
+      "ContentRoot": "D:\\Casso\\PayOs\\back-end\\payos-demo-dotnet-core\\wwwroot\\",
       "BasePath": "_content/PayOSNetCore",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\PayOs\\payos-be-.net\\wwwroot\\css\\style.css",
+      "Identity": "D:\\Casso\\PayOs\\back-end\\payos-demo-dotnet-core\\wwwroot\\css\\style.css",
       "SourceId": "PayOSNetCore",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\PayOs\\payos-be-.net\\wwwroot\\",
+      "ContentRoot": "D:\\Casso\\PayOs\\back-end\\payos-demo-dotnet-core\\wwwroot\\",
       "BasePath": "_content/PayOSNetCore",
       "RelativePath": "css/style.css",
       "AssetKind": "All",

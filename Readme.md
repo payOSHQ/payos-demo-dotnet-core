@@ -3,8 +3,6 @@
 
 #### Step 2: Add environment variables
 - Go to the appsetting.json file (create new file and copy contents in appsetting.json.example)
-- Add mysql host:
-   - "DefaultConnection": "server={your host};database={your database};uid={your usename};pwd={your password};"
 - Added values for PayOS payment gateway environment variables
    - "PAYOS_CLIENT_ID": "{your id}",
    - "PAYOS_API_KEY": "{your api key}",

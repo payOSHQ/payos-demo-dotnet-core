@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PayOs\\payos-be-.net\\PayOSNetCore.csproj": {}
+    "D:\\Casso\\PayOs\\back-end\\payos-demo-dotnet-core\\PayOSNetCore.csproj": {}
   },
   "projects": {
-    "D:\\PayOs\\payos-be-.net\\PayOSNetCore.csproj": {
+    "D:\\Casso\\PayOs\\back-end\\payos-demo-dotnet-core\\PayOSNetCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PayOs\\payos-be-.net\\PayOSNetCore.csproj",
+        "projectUniqueName": "D:\\Casso\\PayOs\\back-end\\payos-demo-dotnet-core\\PayOSNetCore.csproj",
         "projectName": "PayOSNetCore",
-        "projectPath": "D:\\PayOs\\payos-be-.net\\PayOSNetCore.csproj",
-        "packagesPath": "C:\\Users\\Station-3\\.nuget\\packages\\",
-        "outputPath": "D:\\PayOs\\payos-be-.net\\obj\\",
+        "projectPath": "D:\\Casso\\PayOs\\back-end\\payos-demo-dotnet-core\\PayOSNetCore.csproj",
+        "packagesPath": "C:\\Users\\lequo\\.nuget\\packages\\",
+        "outputPath": "D:\\Casso\\PayOs\\back-end\\payos-demo-dotnet-core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Station-3\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\lequo\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -58,21 +58,9 @@
               "target": "Package",
               "version": "[7.0.11, )"
             },
-            "MySql.Data.EntityFramework": {
+            "PayOS.Lib.Be": {
               "target": "Package",
-              "version": "[8.1.0, )"
-            },
-            "MySqlConnector": {
-              "target": "Package",
-              "version": "[2.2.7, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
-            },
-            "Pomelo.EntityFrameworkCore.MySql": {
-              "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[1.0.5, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

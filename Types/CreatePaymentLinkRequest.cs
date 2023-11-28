@@ -1,4 +1,4 @@
-namespace PayOSNetCore.Types;
+namespace NetCoreDemo.Types;
 
 public record CreatePaymentLinkRequest(
     string productName,

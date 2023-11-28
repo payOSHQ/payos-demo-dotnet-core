@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "PayOSNetCore": {
+    "NetCoreDemo": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

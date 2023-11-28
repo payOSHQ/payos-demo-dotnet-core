@@ -1,23 +1,16 @@
-namespace PayOSNetCore.Controllers;
-
+namespace NetCoreDemo.Controllers;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using PayOSNetCore.Models;
-using PayOSNetCore.Types;
-using PayOSNetCore.Utils;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json.Linq;
-
+using Net.PayOSHQ.Types;
+using Net.PayOSHQ;
 public class CheckoutController : Controller
 {
-    private readonly OrderModel _orderModel;
-    private readonly IConfiguration _configuration;
+    private readonly PayOS _payOS;
 
-    public CheckoutController(IConfiguration configuration)
+
+    public CheckoutController(PayOS payOS)
     {
-        _configuration = configuration;
+        _payOS = payOS;
 
-        _orderModel = new OrderModel(configuration);
     }
 
     [HttpGet("/")]
@@ -44,70 +37,14 @@ public class CheckoutController : Controller
         try
         {
             int orderCode = int.Parse(DateTimeOffset.Now.ToString("ffffff"));
-            Item item = new Item("Mì tôm hảo hảo ly", 1, 1000);
-            List<Item> items = new List<Item>();
+            ItemData item = new ItemData("Mì tôm hảo hảo ly", 1, 1000);
+            List<ItemData> items = new List<ItemData>();
             items.Add(item);
-            String checksumKey =
-                _configuration["Environment:PAYOS_CHECKSUM_KEY"]
-                ?? throw new Exception("Cannot find environment");
+            PaymentData paymentData = new PaymentData(orderCode, 1000, "Thanh toan don hang", items, "https://localhost:3002/cancel", "https://localhost:3002/success");
 
-            BodyRequest bodyRequest = new BodyRequest(
-                orderCode,
-                1000,
-                "Thanh toan don hang",
-                items,
-                "https://localhost:3002/cancel",
-                "https://localhost:3002/success",
-                ""
-            );
-            string signature = Utils.CreateSignatureOfPaymentRequest(bodyRequest, checksumKey);
-            string bodyRequestString = JsonConvert.SerializeObject(bodyRequest);
-            JObject bodyRequestJson = JObject.Parse(bodyRequestString);
-            bodyRequestJson["signature"] = signature;
+            CreatePaymentLinkResponse createPayment = await _payOS.createPaymentLink(paymentData);
 
-            //Body request
-            bodyRequestString = bodyRequestJson.ToString();
-
-            //Headers request
-            Dictionary<string, string> headers = new Dictionary<string, string>();
-            headers.Add(
-                "x-client-id",
-                _configuration["Environment:PAYOS_CLIENT_ID"]
-                    ?? throw new Exception("Cannot find environment")
-            );
-            headers.Add(
-                "x-api-key",
-                _configuration["Environment:PAYOS_API_KEY"]
-                    ?? throw new Exception("Cannot find environment")
-            );
-
-            //Make Request
-
-            MyApiClient client = new MyApiClient();
-            String responseBody = await client.CallApiWithJsonBodyAndHeadersAsync(
-                _configuration["Environment:PAYOS_CREATE_PAYMENT_LINK_URL"]
-                    ?? throw new Exception("Cannot find environment"),
-                bodyRequestString,
-                headers
-            );
-            JObject responseBodyJson = JObject.Parse(responseBody);
-
-            if ((string?)responseBodyJson["code"] != "00")
-            {
-                throw new Exception("Invalid response");
-            }
-
-            String checkoutUrl = (string?)responseBodyJson?["data"]["checkoutUrl"];
-            string paymentLinkResSignature = Utils.CreateSignatureFromObj(
-                (JObject?)responseBodyJson["data"],
-                checksumKey
-            );
-
-            if (paymentLinkResSignature != (string)responseBodyJson["signature"])
-            {
-                throw new Exception("Signature is not compatible");
-            }
-            return Redirect(checkoutUrl);
+            return Redirect(createPayment.checkoutUrl);
         }
         catch (System.Exception exception)
         {

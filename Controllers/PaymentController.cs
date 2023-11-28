@@ -1,63 +1,33 @@
-namespace PayOSNetCore.Controllers;
+namespace NetCoreDemo.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using PayOSNetCore.Models;
-using PayOSNetCore.Types;
-using PayOSNetCore.Utils;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json.Linq;
-
+using NetCoreDemo.Types;
+using Net.PayOSHQ;
+using Net.PayOSHQ.Types;
 [Route("[controller]")]
 [ApiController]
 public class PaymentController : ControllerBase
 {
-    private readonly OrderModel _orderModel;
-    private readonly IConfiguration _configuration;
+    private readonly PayOS _payOS;
 
-    public PaymentController(IConfiguration configuration)
+    public PaymentController(PayOS payOS)
     {
-        _configuration = configuration;
-
-        _orderModel = new OrderModel(configuration);
+        _payOS = payOS;
     }
 
     [HttpPost("payos_transfer_handler")]
-    public async Task<IActionResult> payosTransferHandler(UpdateTranserRequest body)
+    public IActionResult payOSTransferHandler(WebhookType body)
     {
         try
         {
-            
             Console.WriteLine("Payements transfer");
-            UpdateTranserData data = body.data;
-            string signature = body.signature;
-            if (data == null)
-            {
-                throw new Exception("Không có dữ liệu");
-            }
-            if (data.description == "Ma giao dich thu nghiem")
+            WebhookDataType data = _payOS.verifyPaymentWebhookData(body);
+
+            if (data.description == "Ma giao dich thu nghiem" || data.description == "VQRIO123")
             {
                 return Ok(new Response(0, "Ok", null));
             }
-
-            if (signature == null)
-            {
-                throw new Exception("Không có chữ ký");
-            }
-
-
-            String checksumKey = _configuration["Environment:PAYOS_CHECKSUM_KEY"]?? throw new Exception("Cannot find environment");
-
-            string signData = Utils.CreateSignatureFromObj(JObject.Parse(JsonConvert.SerializeObject(data)), checksumKey);
-
-            if (signData != signature)
-            {
-                throw new Exception("Chữ ký không hợp lệ");
-            }
-            
-            _orderModel.updateOrderWebhook(data.orderCode, data.reference, data.code, JsonConvert.SerializeObject(body));
-
-            return Ok(new Response(0, "Ok", null));
+            return Ok(new Response(0, "Ok", data));
         }
         catch (Exception e)
         {
