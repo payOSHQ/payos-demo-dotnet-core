@@ -17,7 +17,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="PayOS.Lib.Be" Version="1.0.5" />
+    <PackageReference Include="PayOS.Lib.Be" Version="1.0.9" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 
   </ItemGroup>

@@ -20,14 +20,13 @@ public class PaymentController : ControllerBase
     {
         try
         {
-            Console.WriteLine("Payements transfer");
             WebhookDataType data = _payOS.verifyPaymentWebhookData(body);
 
             if (data.description == "Ma giao dich thu nghiem" || data.description == "VQRIO123")
             {
                 return Ok(new Response(0, "Ok", null));
             }
-            return Ok(new Response(0, "Ok", data));
+            return Ok(new Response(0, "Ok", null));
         }
         catch (Exception e)
         {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6kHaxn3rawxJCdRjdtBT6mYSlURBZZ7SpPvGpQylr9XrqIYfmB6hFje0d1bxjnmZH5LcbUuLv6BON5sgfAQ89Q==",
+  "dgSpecHash": "SR+ysAX5gFcB28cBLkoVyJPGeTBeY3iZxmjrmVLznSGt5uAhCdOYwfMbbzEoegsscL9CacPHMM/5B7dmltttOA==",
   "success": true,
   "projectFilePath": "D:\\Casso\\PayOs\\back-end\\payos-demo-dotnet-core\\PayOSNetCore.csproj",
   "expectedPackageFiles": [
@@ -25,7 +25,7 @@
     "C:\\Users\\lequo\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\lequo\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\lequo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\lequo\\.nuget\\packages\\payos.lib.be\\1.0.5\\payos.lib.be.1.0.5.nupkg.sha512",
+    "C:\\Users\\lequo\\.nuget\\packages\\payos.lib.be\\1.0.9\\payos.lib.be.1.0.9.nupkg.sha512",
     "C:\\Users\\lequo\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\lequo\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\lequo\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

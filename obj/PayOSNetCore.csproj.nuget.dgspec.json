@@ -60,7 +60,7 @@
             },
             "PayOS.Lib.Be": {
               "target": "Package",
-              "version": "[1.0.5, )"
+              "version": "[1.0.9, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
