@@ -2,8 +2,8 @@ namespace NetCoreDemo.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
 using NetCoreDemo.Types;
-using Net.PayOSHQ;
-using Net.PayOSHQ.Types;
+using Net.payOS;
+using Net.payOS.Types;
 [Route("[controller]")]
 [ApiController]
 public class OrderController : ControllerBase
@@ -25,7 +25,7 @@ public class OrderController : ControllerBase
             items.Add(item);
             PaymentData paymentData = new PaymentData(orderCode, body.price, body.description, items, body.cancelUrl, body.returnUrl);
 
-            CreatePaymentLinkResponse createPayment = await _payOS.createPaymentLink(paymentData);
+            CreatePaymentResult createPayment = await _payOS.createPaymentLink(paymentData);
 
             return Ok(new Response(0, "success", createPayment));
         }
@@ -41,8 +41,8 @@ public class OrderController : ControllerBase
     {
         try
         {
-            PaymentLinkInfomation paymentLinkInfomation = await _payOS.getPaymentLinkInfomation(orderId);
-            return Ok(new Response(0, "Ok", paymentLinkInfomation));
+            PaymentLinkInformation paymentLinkInformation = await _payOS.getPaymentLinkInfomation(orderId);
+            return Ok(new Response(0, "Ok", paymentLinkInformation));
         }
         catch (System.Exception exception)
         {
@@ -57,8 +57,8 @@ public class OrderController : ControllerBase
     {
         try
         {
-            PaymentLinkInfomation paymentLinkInfomation = await _payOS.cancelPaymentLink(orderId);
-            return Ok(new Response(0, "Ok", paymentLinkInfomation));
+            PaymentLinkInformation paymentLinkInformation = await _payOS.cancelPaymentLink(orderId);
+            return Ok(new Response(0, "Ok", paymentLinkInformation));
         }
         catch (System.Exception exception)
         {

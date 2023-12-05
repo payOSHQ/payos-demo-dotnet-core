@@ -1,7 +1,7 @@
 namespace NetCoreDemo.Controllers;
 using Microsoft.AspNetCore.Mvc;
-using Net.PayOSHQ.Types;
-using Net.PayOSHQ;
+using Net.payOS.Types;
+using Net.payOS;
 public class CheckoutController : Controller
 {
     private readonly PayOS _payOS;
@@ -42,7 +42,7 @@ public class CheckoutController : Controller
             items.Add(item);
             PaymentData paymentData = new PaymentData(orderCode, 1000, "Thanh toan don hang", items, "https://localhost:3002/cancel", "https://localhost:3002/success");
 
-            CreatePaymentLinkResponse createPayment = await _payOS.createPaymentLink(paymentData);
+            CreatePaymentResult createPayment = await _payOS.createPaymentLink(paymentData);
 
             return Redirect(createPayment.checkoutUrl);
         }

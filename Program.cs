@@ -1,4 +1,4 @@
-using Net.PayOSHQ;
+using Net.payOS;
 
 IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 

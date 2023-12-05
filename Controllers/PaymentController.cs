@@ -2,8 +2,8 @@ namespace NetCoreDemo.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
 using NetCoreDemo.Types;
-using Net.PayOSHQ;
-using Net.PayOSHQ.Types;
+using Net.payOS;
+using Net.payOS.Types;
 [Route("[controller]")]
 [ApiController]
 public class PaymentController : ControllerBase
@@ -20,7 +20,7 @@ public class PaymentController : ControllerBase
     {
         try
         {
-            WebhookDataType data = _payOS.verifyPaymentWebhookData(body);
+            WebhookData data = _payOS.verifyPaymentWebhookData(body);
 
             if (data.description == "Ma giao dich thu nghiem" || data.description == "VQRIO123")
             {

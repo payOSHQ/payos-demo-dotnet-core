@@ -353,7 +353,7 @@
           }
         }
       },
-      "PayOS.Lib.Be/1.0.9": {
+      "payOS/1.0.2": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "13.0.3"
@@ -1235,17 +1235,17 @@
         "packageIcon.png"
       ]
     },
-    "PayOS.Lib.Be/1.0.9": {
-      "sha512": "oWMD+YMX23+K3JK2cnAyY2tvnQtExysHaz0UPd4H3QrPdCC3rKind486ozAP7ItVsxhQcoBmjHJXgCEOKoB40w==",
+    "payOS/1.0.2": {
+      "sha512": "vIdC1VnskoXtzFmG4SjghnZrNCCHjTC1ZP8OjJeG5xilqrOLNaXPMXJAtdl6QoR2mvGgt1Z60ZArmwjdssY6cA==",
       "type": "package",
-      "path": "payos.lib.be/1.0.9",
+      "path": "payos/1.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net6.0/payos-lib-backend-dotnet.dll",
         "lib/net6.0/payos-lib-backend-dotnet.runtimeconfig.json",
-        "payos.lib.be.1.0.9.nupkg.sha512",
-        "payos.lib.be.nuspec"
+        "payos.1.0.2.nupkg.sha512",
+        "payos.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore/6.5.0": {
@@ -1493,8 +1493,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 7.0.11",
       "Microsoft.EntityFrameworkCore.Relational >= 7.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.11",
-      "PayOS.Lib.Be >= 1.0.9",
-      "Swashbuckle.AspNetCore >= 6.5.0"
+      "Swashbuckle.AspNetCore >= 6.5.0",
+      "payOS >= 1.0.2"
     ]
   },
   "packageFolders": {
@@ -1554,13 +1554,13 @@
             "target": "Package",
             "version": "[7.0.11, )"
           },
-          "PayOS.Lib.Be": {
-            "target": "Package",
-            "version": "[1.0.9, )"
-          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.5.0, )"
+          },
+          "payOS": {
+            "target": "Package",
+            "version": "[1.0.2, )"
           }
         },
         "imports": [
