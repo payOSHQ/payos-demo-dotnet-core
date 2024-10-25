@@ -4,8 +4,6 @@ WORKDIR /app
 
 # Copy the project files and restore dependencies
 COPY *.csproj ./
-COPY Nuget.Config ./
-COPY payOS.1.0.8.nupkg ./
 RUN dotnet restore
 
 # Copy the remaining files and build the project
