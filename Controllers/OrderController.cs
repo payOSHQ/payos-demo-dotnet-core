@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using NetCoreDemo.Types;
 using Net.payOS;
 using Net.payOS.Types;
+using System.Security.Cryptography.Xml;
+using Newtonsoft.Json.Linq;
+using Net.payOS.Utils;
+
 [Route("[controller]")]
 [ApiController]
 public class OrderController : ControllerBase
@@ -41,7 +45,7 @@ public class OrderController : ControllerBase
     {
         try
         {
-            PaymentLinkInformation paymentLinkInformation = await _payOS.getPaymentLinkInfomation(orderId);
+            PaymentLinkInformation paymentLinkInformation = await _payOS.getPaymentLinkInformation(orderId);
             return Ok(new Response(0, "Ok", paymentLinkInformation));
         }
         catch (System.Exception exception)

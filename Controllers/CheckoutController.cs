@@ -5,12 +5,13 @@ using Net.payOS;
 public class CheckoutController : Controller
 {
     private readonly PayOS _payOS;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
 
-    public CheckoutController(PayOS payOS)
+    public CheckoutController(PayOS payOS, IHttpContextAccessor httpContextAccessor)
     {
         _payOS = payOS;
-
+        _httpContextAccessor = httpContextAccessor;
     }
 
     [HttpGet("/")]
@@ -38,9 +39,20 @@ public class CheckoutController : Controller
         {
             int orderCode = int.Parse(DateTimeOffset.Now.ToString("ffffff"));
             ItemData item = new ItemData("Mì tôm hảo hảo ly", 1, 1000);
-            List<ItemData> items = new List<ItemData>();
-            items.Add(item);
-            PaymentData paymentData = new PaymentData(orderCode, 1000, "Thanh toan don hang", items, "https://localhost:3002/cancel", "https://localhost:3002/success");
+            List<ItemData> items = new List<ItemData> { item };
+
+            // Get the current request's base URL
+            var request = _httpContextAccessor.HttpContext.Request;
+            var baseUrl = $"{request.Scheme}://{request.Host}";
+
+            PaymentData paymentData = new PaymentData(
+                orderCode,
+                2000,
+                "Thanh toan don hang",
+                items,
+                $"{baseUrl}/cancel",
+                $"{baseUrl}/success"
+            );
 
             CreatePaymentResult createPayment = await _payOS.createPaymentLink(paymentData);
 
@@ -49,7 +61,7 @@ public class CheckoutController : Controller
         catch (System.Exception exception)
         {
             Console.WriteLine(exception);
-            return Redirect("https://localhost:3002/");
+            return Redirect("/");
         }
     }
 }
